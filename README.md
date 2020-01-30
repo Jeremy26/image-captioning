@@ -15,6 +15,16 @@ We use a combination of a CNN encoder to compute convolutional features and laye
 The dataset is a collection of **images** and **captions**.
 For each image, a set of sentences is used as a label to describe the scene.
 
+The words are converted into tokens in a process called **word-embeddings**.
+![](https://miro.medium.com/max/1222/1*FnuVRQBFkjR9cVsq1SNwbw.png)
+
+The process works as follows:
+- take an image as an input and embed it
+- condition lstm on that embedding
+- predict the next token given a START input token
+- use predicted token as an input at next time step
+- iterate until you predict an END token
+
 ## ENCODER
 The encoder is a Convolutional Neural Network named Inception v3.
 This is a popular architecture for image classification.
@@ -39,7 +49,8 @@ The decoder part is using Recurrent Neural Networks and LSTM cells to generate t
 
 ![](https://miro.medium.com/max/4744/1*ERwScS7k6IH3hZIJmGdHDg.png)
 
-The CNN output is fed directly to a Recurrent Neural Network that learn to generate the words.
+The CNN output is adapted and fed to a Recurrent Neural Network that learn to generate the words.
+
 In order to get a long-term memory, the RNN type is full of LSTM cells (Long Short Term Memory) that can keep the state of a word. For example, ` a man holding ___ beer ` could be understood as ` a man holding his beer ` so the notion of masculinity is preserved here.
 
 The decoder part first uses word embeddings.
