@@ -92,3 +92,15 @@ Then, we define functions:
     xent = tf.nn.sparse_softmax_cross_entropy_with_logits(labels=flat_ground_truth, logits=flat_token_logits)
     loss = tf.reduce_mean(tf.boolean_mask(xent, flat_loss_mask))
 ```
+
+### TRAINING
+Training is done with the following parameters:
+```python
+batch_size = 64
+n_epochs = 12
+n_batches_per_epoch = 1000
+n_validation_batches = 100
+```
+
+### RESULTS
+Here are the results obtained.
