@@ -6,6 +6,10 @@ In this project, we combine CNNs and RNNs to generate captions given images.
 
 We use a combination of a CNN encoder to compute convolutional features and layers of LSTM cells as a decoder.
 
+![](https://camo.githubusercontent.com/9a6daff6d4cf95592fc3d1871670d32a87b1bb9f/68747470733a2f2f6769746875622e636f6d2f6873652d616d6c2f696e74726f2d746f2d646c2f626c6f622f6d61737465722f7765656b362f696d616765732f656e636f6465725f6465636f6465722e706e673f7261773d31)
+
+
+## DATASET
 
 ## ENCODER
 The encoder is a Convolutional Neural Network named Inception v3.
@@ -25,4 +29,7 @@ def get_cnn_encoder():
 
 As you can see, the fully-connected layer is cropped with the parameter `include_top=False` inside the function call.
 It means that we directly use the convolutional features and we don't activate them to a purpose (classification, regression, ...).
+
+## DECODER
+The decoder part is using Recurrent Neural Networks and LSTM cells to generate the captions.
 
