@@ -104,3 +104,11 @@ n_validation_batches = 100
 
 ### RESULTS
 Here are the results obtained.
+
+![](output/2.png)
+![](output/3.png)
+
+It's not all perfect.
+![](output/1.png)
+
+    hidden_states, _ = tf.nn.dynamic_rnn(lstm, word_embeds,initial_state=tf.nn.rnn_cell.LSTMStateTuple(c0, h0))
